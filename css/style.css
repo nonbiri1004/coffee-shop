@@ -1,0 +1,282 @@
+/* 定義變數 */
+:root {
+  --coffee-dark:   #3B2314;
+  --coffee-medium: #6F4E37;
+  --coffee-light:  #C8A27A;
+  --cream:         #F5F0E8;
+}
+
+/* ===== Loading 載入畫面 ===== */
+
+#loading {
+  position: fixed;  /* 固定在畫面上，蓋住所有內容 */
+  inset: 0;         /* 上下左右全部為 0，等於撐滿整個畫面 */
+  background-color: var(--coffee-dark);
+  display: flex;
+  align-items: center;     /* 內容垂直置中 */
+  justify-content: center; /* 內容水平置中 */
+  z-index: 9999;           /* 最高層，確保蓋在所有元素上面 */
+  transition: opacity 0.5s ease; /* 消失時淡出效果 */
+}
+
+/* 載入畫面中間的文字與圖示區塊 */
+.loading-content {
+  text-align: center;
+  color: var(--cream);
+}
+
+.loading-content p {
+  margin-top: 1rem;
+  color: var(--coffee-light);
+  letter-spacing: 3px; /* 字距拉開，營造質感 */
+  font-size: 14px;
+}
+
+/* 旋轉的圓形 Loading 圖示 */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--coffee-medium);       /* 圓圈底色 */
+  border-top-color: var(--coffee-light);         /* 只有上方有顏色，形成缺口旋轉效果 */
+  border-radius: 50%;                            /* 變成圓形 */
+  animation: spin 0.8s linear infinite;          /* 套用旋轉動畫，持續不停 */
+}
+
+/* 旋轉動畫：從 0 轉到 360 度 */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 導覽列 */
+/* 取用變數就要用var() */
+.navbar-coffee {
+  background-color: var(--coffee-dark);
+}
+
+.navbar-coffee .nav-link {
+  color: var(--cream) !important;
+}
+
+.navbar-coffee .nav-link:hover {
+  color: var(--coffee-light) !important;
+}
+
+.navbar-coffee .navbar-brand {
+  color: var(--coffee-light) !important;
+}
+
+/* .hero-slide區塊 */
+.hero-slide {
+  background-image: url(../images/hero-bg.jpg);    /* 放背景圖片 */
+  background-size: cover;        /* 圖片撐滿整個區塊 */
+  background-position: center;   /* 圖片置中 */
+  height: 100vh;                 /* 高度 = 整個螢幕高度 */
+  position: relative;            /* 給遮罩層當定位基準 */
+}
+
+.hero-overlay {
+  position: absolute;        /* 脫離正常排版，相對父層(hero-banner)定位 */
+  top: 0;                    /* 從父層最頂部開始 */
+  left: 0;                   /* 從父層最左邊開始 */
+  width: 100%;               /* 寬度撐滿父層 */
+  height: 100%;              /* 高度撐滿父層 */
+  background-color: rgba(0, 0, 0, 0.5);  /* 半透明黑色 */
+}
+
+.hero-content {
+  position: relative;   /* 讓文字層浮到遮罩層上面 */
+  color: white;         /* 文字變白色 */
+  padding-top: 200px;   /* 文字距離頂部 200px */
+  text-align: center;   /* 小標題、大標題、說明文字、按鈕都會置中。 */
+}
+
+/* <!-- ===== 3. 咖啡分類 ===== --> */
+.category {
+  background-color: #fff;
+}
+.category .card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* 咖啡分類翻轉卡片 */
+.category .flip-front img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.category .flip-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category .flip-back p {
+  font-size: 14px;
+  color: var(--coffee-light);
+  line-height: 1.6;
+}
+
+/* ===== 門市翻轉卡片 ===== */
+
+.flip-card {
+  height: 280px;
+  perspective: 1000px; /* 視角距離，數值越小翻轉越誇張，越大越平緩 */
+  cursor: pointer;     /* 滑鼠移上去變成手指游標 */
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; /* 讓子元素（前後面）保持3D空間，不設這個翻轉會失效 */
+  transition: transform 0.6s ease; /* 翻轉動畫持續0.6秒，ease=先快後慢 */
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg); /* 滑鼠移上去時，沿Y軸旋轉180度（左右翻轉） */
+}
+
+.flip-front,
+.flip-back {
+  position: absolute; /* 前後兩面疊在同一個位置 */
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* 當這一面「朝後」時，讓它隱形，避免看到反面透過來 */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ── 正面 ── */
+.flip-front {
+  background: #fff;
+  border: 1px solid #ddd;
+  /* 預設面朝前（rotateY = 0deg），使用者一開始看到的就是這面 */
+}
+
+.flip-front img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* 圖片填滿容器，超出部分裁切，不會變形 */
+}
+
+/* ── 背面 ── */
+.flip-back {
+  background: var(--coffee-dark);
+  color: var(--cream);
+  transform: rotateY(180deg); /* 預先旋轉180度藏在背後，hover後才翻到正面 */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;       /* 內容垂直排列 */
+  justify-content: space-between; /* 內容平均分散在上下兩端 */
+}
+
+.flip-back p {
+  color: var(--coffee-light);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* ===== 關於我們 ===== */
+.about {
+  background-color: var(--cream);
+}
+
+.text-coffee {
+  color: var(--coffee-medium);
+  font-weight: bold;
+}
+
+.about img {
+  box-shadow: 8px 8px 0px var(--coffee-light);
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: var(--coffee-dark);
+}
+
+.footer-brand {
+  color: var(--coffee-light);
+  font-size: 1.3rem;
+}
+
+.footer-title {
+  color: var(--cream);
+  letter-spacing: 1px;
+}
+
+.footer-text {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--coffee-light);
+}
+
+.footer-hr {
+  border-color: var(--coffee-medium);
+  opacity: 0.3;
+}
+
+.footer-copy {
+  color: #666;
+  font-size: 13px;
+}
+
+.footer-icon img {
+  filter: brightness(0.7);
+  transition: filter 0.3s;
+}
+
+.footer-icon:hover img {
+  filter: brightness(1);
+}
+
+.footer-social {
+  color: var(--coffee-light);
+  font-size: 1.4rem;
+  transition: color 0.3s;
+}
+
+.footer-social:hover {
+  color: #fff;
+}
+
+/* ===== Pagetop 回到頂部按鈕 ===== */
+#pagetop {
+  position: fixed;       /* 固定在畫面上，不隨頁面捲動 */
+  bottom: 30px;          /* 距離畫面底部 30px */
+  right: 30px;           /* 距離畫面右側 30px */
+  width: 45px;
+  height: 45px;
+  background-color: var(--coffee-dark);
+  color: var(--cream);
+  border: none;
+  border-radius: 50%;    /* 設成圓形按鈕 */
+  font-size: 20px;
+  cursor: pointer;       /* 滑鼠移上去變手指游標 */
+  display: none;         /* 預設隱藏，由 JS 控制何時顯示 */
+  align-items: center;   /* 圖示垂直置中（配合 flex 使用） */
+  justify-content: center; /* 圖示水平置中（配合 flex 使用） */
+  transition: opacity 0.3s; /* 出現/消失時淡入淡出效果 */
+  z-index: 999;          /* 確保按鈕浮在所有內容上面 */
+}
+
+#pagetop:hover {
+  background-color: var(--coffee-medium); /* 滑鼠移上去時變淺一點 */
+}
+

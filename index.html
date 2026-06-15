@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首頁</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 自己的 CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+  <!-- Loading 畫面 -->
+  <div id="loading">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <!-- 1. Navbar（頁首） -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-coffee">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">☕ 咖啡 </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <!-- 漢堡選單按鈕&無障礙設定 -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#products">產品列表</a></li>
+          <li class="nav-item"><a class="nav-link" href="#store">門市店鋪</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">關於我們</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">聯絡我們</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- ===== 2.hero-slide ===== -->
+  <section id="hero">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+
+      <!-- 指示點 -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <!-- 輪播內容 -->
+      <div class="carousel-inner">
+
+        <!-- 第一張 -->
+        <div class="carousel-item active hero-slide" style="background-image: url(images/hero-bg.jpg);">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <p class="hero-sub">Welcome to Our Coffee</p>
+            <h1>品味一杯好咖啡</h1>
+            <p>從產地到您手中，我們用心守護每一個環節</p>
+            <a href="#products" class="btn btn-light btn-lg mt-3">探索商品</a>
+          </div>
+        </div>
+
+        <!-- 第二張 -->
+        <div class="carousel-item hero-slide" style="background-image: url(images/hero-bg2.jpg);">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <p class="hero-sub">Premium Coffee Beans</p>
+            <h1>嚴選世界產區豆款</h1>
+            <p>衣索比亞、哥倫比亞、巴拿馬，風味各異</p>
+            <a href="#products" class="btn btn-light btn-lg mt-3">查看咖啡豆</a>
+          </div>
+        </div>
+
+        <!-- 第三張 -->
+        <div class="carousel-item hero-slide" style="background-image: url(images/hero-bg3.jpg);">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <p class="hero-sub">Find Us Here</p>
+            <h1>三間門市等你來</h1>
+            <p>台北、台中、高雄，找一間離你最近的</p>
+            <a href="#store" class="btn btn-light btn-lg mt-3">門市資訊</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 左右箭頭 -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ===== 3. 咖啡分類 ===== -->
+  <section id="products" class="category py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">產品列表</h2>
+      <div class="row g-4">
+
+        <!-- 咖啡飲品 -->
+        <div class="col-md-4">
+          <div class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="images/category-drink.jpg" alt="咖啡飲品">
+                <div class="p-3 text-center">
+                  <h5>咖啡飲品</h5>
+                  <small class="text-muted">Coffee Drinks</small>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h5>咖啡飲品</h5>
+                <p>精選義式濃縮、手沖單品、冰釀冷萃等多款咖啡飲品，每一杯都來自嚴選產地豆款。</p>
+                <button class="btn btn-sm btn-light w-100" data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasDrink">查看商品 →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 咖啡食品 -->
+        <div class="col-md-4">
+          <div class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="images/category-cake.jpg" alt="咖啡食品">
+                <div class="p-3 text-center">
+                  <h5>咖啡食品</h5>
+                  <small class="text-muted">Coffee Food</small>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h5>咖啡食品</h5>
+                <p>搭配咖啡的最佳良伴，包含手工餅乾、咖啡蛋糕、提拉米蘇等甜點輕食。</p>
+                <button class="btn btn-sm btn-light w-100" data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasFood">查看商品 →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 咖啡豆 -->
+        <div class="col-md-4">
+          <div class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="images/category-equipment.jpg" alt="咖啡豆">
+                <div class="p-3 text-center">
+                  <h5>咖啡豆</h5>
+                  <small class="text-muted">Coffee Beans</small>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h5>咖啡豆</h5>
+                <p>來自衣索比亞、哥倫比亞、巴拿馬等產區的精品生豆，提供淺中深焙多種選擇。</p>
+                <button class="btn btn-sm btn-light w-100" data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasBeans">查看商品 →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Offcanvas 咖啡飲品 -->
+  <div class="offcanvas offcanvas-end" id="offcanvasDrink" tabindex="-1">
+    <div class="offcanvas-header" style="background-color: var(--coffee-dark);">
+      <h5 class="offcanvas-title text-white">咖啡飲品</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="text-muted mb-4">精選義式濃縮、手沖單品、冰釀冷萃等多款咖啡飲品。</p>
+      <div class="d-flex align-items-center gap-3 mb-3 p-2 border rounded">
+        <img src="images/drink1.jpg" alt="拿鐵" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+        <div>
+          <p class="mb-0 fw-bold">經典拿鐵</p>
+          <small class="text-muted">香醇奶香與濃縮完美融合</small>
+          <p class="mb-0 text-danger">NT$ 120</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3 mb-3 p-2 border rounded">
+        <img src="images/drink2.jpg" alt="冷萃" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+        <div>
+          <p class="mb-0 fw-bold">冰釀冷萃</p>
+          <small class="text-muted">12小時低溫萃取，甘甜順口</small>
+          <p class="mb-0 text-danger">NT$ 150</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3 mb-3 p-2 border rounded">
+        <img src="images/drink3.jpg" alt="手沖" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+        <div>
+          <p class="mb-0 fw-bold">手沖單品</p>
+          <small class="text-muted">每日新鮮研磨，風味豐富</small>
+          <p class="mb-0 text-danger">NT$ 180</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offcanvas 咖啡食品 -->
+  <div class="offcanvas offcanvas-end" id="offcanvasFood" tabindex="-1">
+    <div class="offcanvas-header" style="background-color: var(--coffee-dark);">
+      <h5 class="offcanvas-title text-white">咖啡食品</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="text-muted mb-4">搭配咖啡的最佳良伴，手工甜點輕食。</p>
+      <div class="d-flex align-items-center gap-3 mb-3 p-2 border rounded">
+        <img src="images/food1.jpg" alt="提拉米蘇" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+        <div>
+          <p class="mb-0 fw-bold">提拉米蘇</p>
+          <small class="text-muted">經典義式咖啡甜點</small>
+          <p class="mb-0 text-danger">NT$ 130</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3 mb-3 p-2 border rounded">
+        <img src="images/food2.jpg" alt="咖啡蛋糕" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+        <div>
+          <p class="mb-0 fw-bold">咖啡蛋糕</p>
+          <small class="text-muted">濃郁咖啡香氣融入蛋糕體</small>
+          <p class="mb-0 text-danger">NT$ 110</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3 mb-3 p-2 border rounded">
+        <img src="images/food3.jpg" alt="手工餅乾" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+        <div>
+          <p class="mb-0 fw-bold">手工餅乾</p>
+          <small class="text-muted">奶油酥脆，搭配咖啡絕配</small>
+          <p class="mb-0 text-danger">NT$ 60</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offcanvas 咖啡豆 -->
+  <div class="offcanvas offcanvas-end" id="offcanvasBeans" tabindex="-1">
+    <div class="offcanvas-header" style="background-color: var(--coffee-dark);">
+      <h5 class="offcanvas-title text-white">咖啡豆</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="text-muted mb-4">來自世界各產區的精品咖啡豆，多種烘焙深度。</p>
+      <div class="d-flex align-items-center gap-3 mb-3 p-2 border rounded">
+        <img src="images/bean1.jpg" alt="衣索比亞" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+        <div>
+          <p class="mb-0 fw-bold">衣索比亞 耶加雪菲</p>
+          <small class="text-muted">花香果酸，淺焙</small>
+          <p class="mb-0 text-danger">NT$ 380 / 100g</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3 mb-3 p-2 border rounded">
+        <img src="images/bean2.jpg" alt="哥倫比亞" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+        <div>
+          <p class="mb-0 fw-bold">哥倫比亞 薇拉</p>
+          <small class="text-muted">焦糖甜感，中焙</small>
+          <p class="mb-0 text-danger">NT$ 320 / 100g</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3 mb-3 p-2 border rounded">
+        <img src="images/bean3.jpg" alt="巴拿馬" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+        <div>
+          <p class="mb-0 fw-bold">巴拿馬 藝妓</p>
+          <small class="text-muted">茉莉花香，淺中焙</small>
+          <p class="mb-0 text-danger">NT$ 680 / 100g</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 4. 門市店舖 ===== -->
+  <section id="store" class="store-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-2">門市店舖</h2>
+      <p class="text-center text-muted mb-4">滑鼠移到卡片查看詳情</p>
+      <div class="row g-4 justify-content-center">
+
+        <!-- 門市1 -->
+        <div class="col-md-4">
+          <div class="flip-card" data-bs-toggle="modal" data-bs-target="#storeModal1">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="images/store1.jpg" alt="台北信義店">
+                <div class="p-3 text-center">
+                  <h5>台北信義店</h5>
+                  <small class="text-muted">信義區</small>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h5>台北信義店</h5>
+                <p><i class="bi bi-geo-alt"></i> 台北市信義區松仁路58號</p>
+                <p><i class="bi bi-telephone"></i> 02-2720-1234</p>
+                <p><i class="bi bi-clock"></i> 平日 08:00–20:00</p>
+                <button class="btn btn-sm btn-light w-100">查看詳情</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 門市2 -->
+        <div class="col-md-4">
+          <div class="flip-card" data-bs-toggle="modal" data-bs-target="#storeModal2">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="images/store2.jpg" alt="台中草悟道店">
+                <div class="p-3 text-center">
+                  <h5>台中草悟道店</h5>
+                  <small class="text-muted">西區</small>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h5>台中草悟道店</h5>
+                <p><i class="bi bi-geo-alt"></i> 台中市西區英才路532號</p>
+                <p><i class="bi bi-telephone"></i> 04-2301-5678</p>
+                <p><i class="bi bi-clock"></i> 每日 09:00–21:00</p>
+                <button class="btn btn-sm btn-light w-100">查看詳情</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 門市3 -->
+        <div class="col-md-4">
+          <div class="flip-card" data-bs-toggle="modal" data-bs-target="#storeModal3">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="images/store3.jpg" alt="高雄左營店">
+                <div class="p-3 text-center">
+                  <h5>高雄左營店</h5>
+                  <small class="text-muted">左營區</small>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h5>高雄左營店</h5>
+                <p><i class="bi bi-geo-alt"></i> 高雄市左營區博愛二路202號</p>
+                <p><i class="bi bi-telephone"></i> 07-3455-9012</p>
+                <p><i class="bi bi-clock"></i> 平日 08:30–20:30</p>
+                <button class="btn btn-sm btn-light w-100">查看詳情</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal 1 -->
+  <div class="modal fade" id="storeModal1" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">台北信義店</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>📍 台北市信義區松仁路58號</p>
+          <p>📞 02-2720-1234</p>
+          <p>🕐 平日 08:00–20:00 / 假日 09:00–21:00</p>
+          <a href="https://maps.google.com/?q=台北市信義區松仁路58號" target="_blank" class="btn btn-dark w-100">Google Maps
+            導航</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="modal fade" id="storeModal2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">台中草悟道店</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>📍 台中市西區英才路532號</p>
+          <p>📞 04-2301-5678</p>
+          <p>🕐 每日 09:00–21:00</p>
+          <a href="https://maps.google.com/?q=台中市西區英才路532號" target="_blank" class="btn btn-dark w-100">Google Maps
+            導航</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="modal fade" id="storeModal3" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">高雄左營店</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>📍 高雄市左營區博愛二路202號</p>
+          <p>📞 07-3455-9012</p>
+          <p>🕐 平日 08:30–20:30 / 假日 09:00–21:00</p>
+          <a href="https://maps.google.com/?q=高雄市左營區博愛二路202號" target="_blank" class="btn btn-dark w-100">Google Maps
+            導航</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 5. 關於我們 ===== -->
+  <section id="about" class="about py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <!-- 左邊：圖片 -->
+        <div class="col-md-6">
+          <img src="images/about.jpg" alt="關於我們" class="img-fluid rounded">
+        </div>
+
+        <!-- 右邊：文字 -->
+        <div class="col-md-6">
+          <p class="text-muted mb-1">OUR STORY</p>
+          <h2 class="mb-3">用一杯咖啡<br>連結每一個人</h2>
+          <p>我們相信，一杯好咖啡不只是飲料，而是一種生活態度。從2015年創立至今，我們走遍世界各地尋找最優質的咖啡產區，只為將最純粹的咖啡風味帶給每一位客人。</p>
+          <p>每一顆咖啡豆，都經過我們嚴格把關的烘焙工藝，從產地到您手中，我們用心守護每一個環節。</p>
+
+          <!-- 數字亮點 -->
+          <div class="row text-center mt-4 mb-4">
+            <div class="col-4">
+              <h3 class="text-coffee">10+</h3>
+              <small class="text-muted">年烘焙經驗</small>
+            </div>
+            <div class="col-4">
+              <h3 class="text-coffee">30+</h3>
+              <small class="text-muted">合作產區</small>
+            </div>
+            <div class="col-4">
+              <h3 class="text-coffee">3</h3>
+              <small class="text-muted">間門市店舖</small>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn btn-dark">聯絡我們</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. Footer / 聯絡我們 ===== -->
+  <footer id="contact" class="footer pt-5 pb-3">
+    <div class="container">
+      <div class="row g-4 mb-4">
+
+        <!-- 左：品牌簡介 -->
+        <div class="col-md-4">
+          <h5 class="footer-brand mb-3">☕ 咖啡</h5>
+          <p class="footer-text">用一杯好咖啡，連結每一個人。我們致力於將世界各地最優質的咖啡風味帶給您。</p>
+        </div>
+
+        <!-- 中：快速連結 -->
+        <div class="col-md-4">
+          <h6 class="footer-title mb-3">快速連結</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#hero">首頁</a></li>
+            <li><a href="#products">產品列表</a></li>
+            <li><a href="#store">門市店舖</a></li>
+            <li><a href="#about">關於我們</a></li>
+          </ul>
+        </div>
+
+        <!-- 右：聯絡資訊 -->
+        <div class="col-md-4">
+          <h6 class="footer-title mb-3">聯絡我們</h6>
+          <ul class="list-unstyled footer-text mb-4">
+            <li class="mb-2">📍 台北市信義區松仁路58號</li>
+            <li class="mb-2">📞 02-2720-1234</li>
+            <li class="mb-2">✉️ hello@coffee.com</li>
+            <li class="mb-2">🕐 週一～週五 09:00–18:00</li>
+          </ul>
+
+          <!-- 社群圖示 -->
+          <div class="d-flex gap-3 mb-4">
+            <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-line"></i></a>
+          </div>
+
+          <!-- 聯絡按鈕 -->
+          <button class="btn btn-light w-100" data-bs-toggle="modal" data-bs-target="#contactModal">
+            ✉️ 立即聯絡我們
+          </button>
+        </div>
+
+      </div>
+
+      <!-- 分隔線 -->
+      <hr class="footer-hr">
+
+      <!-- 版權 -->
+      <p class="text-center footer-copy mb-0">
+        © 2025 咖啡品牌 All Rights Reserved.
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- 聯絡我們 Modal -->
+  <div class="modal fade" id="contactModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header" style="background-color: var(--coffee-dark);">
+          <h5 class="modal-title text-white">聯絡我們</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body p-4">
+          <form id="contactForm" novalidate>
+            <div class="mb-3">
+              <label class="form-label">姓名</label>
+              <input type="text" class="form-control" id="userName" placeholder="請輸入姓名">
+              <div class="invalid-feedback">請輸入姓名</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" id="userEmail" placeholder="請輸入 Email">
+              <div class="invalid-feedback">請輸入正確的 Email 格式</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">留言內容</label>
+              <textarea class="form-control" id="userMessage" rows="4" placeholder="請輸入留言內容"></textarea>
+              <div class="invalid-feedback">請輸入留言內容</div>
+            </div>
+            <button type="submit" class="btn btn-dark w-100">送出訊息</button>
+            <div id="successMsg" class="text-success text-center mt-3" style="display:none;">
+              ✅ 已成功送出，我們將盡快回覆您！
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Pagetop 按鈕 -->
+  <button id="pagetop" onclick="scrollToTop()">
+    <i class="bi bi-chevron-up"></i>
+  </button>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 引入主要 JS 檔案 -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
